@@ -1,2 +1,0 @@
-# attendance-website
-Student attendance. 
