@@ -1,109 +1,31 @@
-* {
-  margin: 0;
-  padding: 0;
-  font-family: Poppins, sans-serif;
-}
-
-body {
-  height: 100vh;
-  color: white;
-  overflow-x: hidden;
-  animation: pageFade 1s ease;
-}
-
-@keyframes pageFade {
-  from { opacity: 0; transform: scale(0.98); }
-  to { opacity: 1; transform: scale(1); }
-}
-
 .bg-animation {
   position: fixed;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(120deg,#00c6ff,#0072ff,#8e2de2,#4a00e0);
-  background-size: 400% 400%;
-  animation: gradientMove 15s ease infinite;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top, #0f2027, #000);
+  overflow: hidden;
   z-index: -1;
 }
 
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+.bg-animation::before,
+.bg-animation::after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background-image:
+    radial-gradient(circle, rgba(0,198,255,0.7) 2px, transparent 2px),
+    radial-gradient(circle, rgba(142,45,226,0.6) 2px, transparent 2px);
+  background-size: 90px 90px;
+  animation: particlesMove 35s linear infinite;
 }
 
-.form-box {
-  max-width: 400px;
-  margin: 80px auto;
-  padding: 30px;
-  background: rgba(255,255,255,0.12);
-  border-radius: 20px;
-  backdrop-filter: blur(10px);
-  animation: floatCard 4s ease-in-out infinite;
+.bg-animation::after {
+  animation-direction: reverse;
+  opacity: 0.4;
 }
 
-@keyframes floatCard {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
-}
-
-h2, h3 {
-  text-align: center;
-  margin-bottom: 15px;
-}
-
-input, select {
-  width: 100%;
-  padding: 12px;
-  margin: 8px 0;
-  border-radius: 10px;
-  border: none;
-  transition: 0.3s;
-}
-
-input:focus, select:focus {
-  outline: none;
-  box-shadow: 0 0 15px #00c6ff;
-  transform: scale(1.03);
-}
-
-button {
-  width: 100%;
-  padding: 12px;
-  margin-top: 10px;
-  border: none;
-  border-radius: 10px;
-  background: #00c6ff;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px #00c6ff;
-}
-
-ul {
-  list-style: none;
-}
-
-ul li {
-  background: rgba(255,255,255,0.2);
-  padding: 10px;
-  margin: 8px 0;
-  border-radius: 10px;
-  animation: slideIn 0.4s ease;
-}
-
-@keyframes slideIn {
-  from { opacity: 0; transform: translateX(-20px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-.note {
-  text-align: center;
-  font-size: 0.8rem;
-  opacity: 0.8;
+@keyframes particlesMove {
+  from { transform: translate(0, 0); }
+  to { transform: translate(-300px, -300px); }
 }
