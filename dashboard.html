@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Teacher Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="bg-animation"></div>
+
+<div class="form-box">
+  <h2>Teacher Dashboard</h2>
+
+  <form id="attendanceForm">
+    <input id="name" placeholder="Student Name" required>
+    <input id="id" placeholder="Student ID" required>
+    <input id="subject" placeholder="Subject" required>
+    <input id="date" type="date" required>
+    <button type="submit">Save Attendance</button>
+  </form>
+
+  <h3>Attendance Records</h3>
+  <ul id="attendanceList"></ul>
+
+  <button onclick="logout()">Logout</button>
+</div>
+
+<script src="js/attendance.js"></script>
+</body>
+</html>
